@@ -21,8 +21,11 @@ give_unsafe_serialization() {
 }
 
 give_unsafe_string_use() {
-    echo "$@" \
-        | xargs grep "\(strcat\|strcpy\)"
+    grep '\(strcat\|strcpy\)([^,]\+,[^"]\+)' "$@"
+}
+
+give_unsafe_sizeof_use() {
+    grep 'sizeof(\(this\|[!=<>]\))' "$@"
 }
 
 # We'll just use find, it should be okay
