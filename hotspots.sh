@@ -12,20 +12,24 @@ give_misleading_indentation() {
         | sed -n '2p'
 }
 
-give_unsafe_execution() {
+give_execution() {
     grep "\W\(system\|popen\|Popen\)(" "$@"
 }
 
-give_unsafe_serialization() {
+give_serialization() {
     grep "\W\(Pickle.load\|yaml.load\)" "$@"
 }
 
-give_unsafe_string_use() {
+give_string_use() {
     grep '\(strcat\|strcpy\)([^,]\+,[^"]\+)' "$@"
 }
 
 give_unsafe_sizeof_use() {
     grep 'sizeof(\(this\|[!=<>]\))' "$@"
+}
+
+give_macro_cast() {
+    grep '^#define \w\+(.*\s(\w\+)\w\+' "$@"
 }
 
 # We'll just use find, it should be okay
