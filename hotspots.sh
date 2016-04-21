@@ -20,6 +20,10 @@ give_serialization() {
     grep "\W\(Pickle.load\|yaml.load\)" "$@"
 }
 
+give_tempfile() {
+    grep "\Wmktemp(" "$@"
+}
+
 give_string_use() {
     grep '\(strcat\|strcpy\)([^,]\+,[^"]\+)' "$@"
 }
