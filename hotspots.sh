@@ -13,7 +13,7 @@ give_misleading_indentation() {
 }
 
 give_execution() {
-    grep "\W\(system\|popen\|Popen\)(" "$@"
+    grep "\W\(system\|popen\|Popen\|execve\|vfork\)(" "$@"
 }
 
 give_serialization() {
