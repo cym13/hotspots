@@ -1,12 +1,8 @@
-========================
-gg - A good grep wrapper
-========================
-
 Description
 ===========
 
-Simply points out things and function calls of interest. Mostly C but may
-prove useful for python, java and others too.
+Hotspots simply points out things and function calls of interest. Mostly C
+but may prove useful for python, java and others too.
 
 License
 =======
