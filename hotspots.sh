@@ -36,6 +36,10 @@ give_macro_cast() {
     grep '^#define \w\+(.*\s(\w\+)\w\+' "$@"
 }
 
+give_dynamic_library_loading() {
+    grep '\W\(LoadLibrary\|dlopen\)(' "$@"
+}
+
 # We'll just use find, it should be okay
 functions="$(_grep "^give_\w\+(" "$0" | cut -d '(' -f 1)"
 files="$(find "$@" -type f | xargs echo) /dev/null"
