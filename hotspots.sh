@@ -25,7 +25,7 @@ give_tempfile() {
 }
 
 give_string_use() {
-    grep '\(gets\|strcat\|strcpy\)([^,]\+,[^"]\+)' "$@"
+    grep '\W\(gets\|strcat\|strcpy\)([^,]\+,[^"]\+)' "$@"
 }
 
 give_unsafe_sizeof_use() {
