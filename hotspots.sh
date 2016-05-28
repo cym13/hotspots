@@ -40,6 +40,10 @@ give_dynamic_library_loading() {
     grep '\W\(LoadLibrary\|dlopen\)(' "$@"
 }
 
+give_unsafe_address_bound() {
+    grep '\WINADDR_ANY\W' "$@"
+}
+
 # We'll just use find, it should be okay
 functions="$(_grep "^give_\w\+(" "$0" | cut -d '(' -f 1)"
 files="$(find "$@" -type f | xargs echo) /dev/null"
